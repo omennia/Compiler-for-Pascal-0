@@ -1,21 +1,14 @@
 
-# Trabalho Laboratorial de Compiladores
+## Compiler for Pascal-0
 
-## Compilador de Pascal-0
+This is a project for the curricular unit of Compilers.
 
-* Descrição do trabalho no documento [trabalho.pdf](./trabalho.pdf)
-* Descrição do subconjunto da linguagem Pascal no documento
-  [pascal0-reference.pdf](./pascal0-reference.pdf)
+## Running the project
 
-## Sugestões
-
-* Coloquem o código fonte num subdiretório  `src`.
-* Usem o `make`/`cabal` para automatizar a compilação de C ou Haskell
-  respetivamente.
-* Dispõe de um conjunto de programas de exemplo para testes no
-  subdiretório `examples`; podem ainda acrescentar mais.
-
-Bom trabalho!
-
+There are some custom examples in the folders named examples and original examples.
+To run the examples, we simply run the command:
+```shell
+./run
+```
 ----
-Pedro Vasconcelos, 2022.
+Hugo Cardante && Marco Gonçalves
