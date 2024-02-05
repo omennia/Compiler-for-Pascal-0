@@ -1,0 +1,17 @@
+name:                hmcompiler
+version:             0.1.0.0
+synopsis:            Compilador simples para Pascal0
+description:         Compilador simples para Pascal0
+author:              Nome
+maintainer:          email@domínio
+category:            Language
+build-type:          Simple
+cabal-version:       >=1.10
+                     
+executable hmcompiler
+  main-is:             Main.hs
+  other-modules:       Lexer, Parser, AST, Typecheck, IntermCodeGen, IR, MachineCodeGen
+  build-tools:         alex, happy
+  build-depends:       base, array, containers, mtl
+  hs-source-dirs:      src
+  default-language:    Haskell2010

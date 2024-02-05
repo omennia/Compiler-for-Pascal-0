@@ -1,0 +1,69 @@
+Main:
+    li $t0, 1
+    li $t2, 2
+    move $t3, $t0
+    move $t4, $t0
+    li $t5, 10
+
+    li $t9, 9
+
+    # save temporaries
+    sw $t0, -4($sp)
+    sw $t1, -8($sp)
+    sw $t2, -12($sp)
+    sw $t3, -16($sp)
+    sw $t4, -20($sp)
+    sw $t5, -24($sp)
+    sw $t6, -28($sp)
+    sw $t7, -32($sp)
+    sw $t8, -36($sp)
+    sw $t9, -40($sp)
+    addiu $sp, $sp, -40
+
+    # load arguments
+    sw $t2, -4($sp)
+    sw $t3, -8($sp)
+    sw $t4, -12($sp)
+    sw $t5, -16($sp)
+    addiu $sp, $sp, -16
+
+    # call
+    jal F
+    addiu $sp, $sp, 16
+
+    #restore temporaries
+    lw $t9, 0($sp)
+    lw $t8, 4($sp)
+    lw $t7, 8($sp)
+    lw $t6, 12($sp)
+    lw $t5, 16($sp)
+    lw $t4, 20($sp)
+    lw $t3, 24($sp)
+    lw $t2, 28($sp)
+    lw $t1, 32($sp)
+    lw $t0, 36($sp)
+    addiu $sp, $sp, 40
+
+    move $t1, $v0
+
+    li $v0, 10              # terminate program run and
+    syscall  
+
+F:
+    lw $t4, 0($sp)
+    lw $t3, 4($sp)
+    lw $t2, 8($sp)
+    lw $t1, 12($sp)
+    sw $fp, -4($sp)
+    sw $ra, -8($sp)
+    move $fp, $sp
+
+    move $t1, $t2
+    move $t3, $t4
+    li $t0, 10
+
+    move $v0, $t0
+    move $sp, $fp
+    lw $ra, -8($sp)
+    lw $fp, -4($sp)
+    jr $ra

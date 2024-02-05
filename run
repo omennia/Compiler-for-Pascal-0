@@ -1,0 +1,14 @@
+cabal build && clear && cabal run < original_examples/fact.pas0
+echo "\n\n\n"
+sleep 0.5
+cabal run < original_examples/fib.pas0
+echo "\n\n\n"
+sleep 0.5
+cabal run < original_examples/prime.pas0
+echo "\n\n\n"
+sleep 0.5
+cabal run < original_examples/sort.pas0
+echo "\n\n\n"
+sleep 0.5
+cabal run < original_examples/sumsquares.pas0
+echo "\n\n\n"

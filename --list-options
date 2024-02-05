@@ -1,0 +1,76 @@
+Up to date
+typecheck ok
+.data
+.text
+li $t1 10
+sw $t0, -4($sp)
+addiu $sp $sp -4
+sw $t1, -4($sp)
+addiu $sp $sp -4
+jal FACT
+addiu $sp, $sp, 4
+lw $t0, 0($sp)
+addiu $sp, $sp 4
+move $t0, $v0
+addiu $sp $sp 0
+sw $t0, -4($sp)
+addiu $sp $sp -4
+jal WRITEINT
+addiu $sp, $sp, 4
+addiu $sp, $sp 0
+move $zero, $v0
+li $v0, 10
+syscall
+FACT: 
+sw $fp, -4($sp)
+sw $ra, -8($sp)
+move $fp, $sp
+addiu $sp, $sp, -8
+lw $t1, 0($fp)
+li $t2 0
+move $t3, $t1
+bge $t2, $t3, L1
+L0:
+move $t2, $t1
+move $t5, $t1
+li $t6 1
+sub $t4, $t5, $t6
+sw $t3, -4($sp)
+sw $t2, -8($sp)
+sw $t1, -12($sp)
+sw $t0, -16($sp)
+addiu $sp $sp -16
+sw $t4, -4($sp)
+addiu $sp $sp -4
+jal FACT
+addiu $sp, $sp, 4
+lw $t0, 0($sp)
+lw $t1, 4($sp)
+lw $t2, 8($sp)
+lw $t3, 12($sp)
+addiu $sp, $sp 16
+move $t3, $v0
+mul $t0, $t2, $t3
+j L2
+L1:
+li $t0 1
+L2:
+move $v0, $t0
+move $sp, $fp
+lw $ra, -8($sp)
+lw $fp, -4($sp)
+jr $ra
+WRITEINT: 
+li $v0, 1
+lw $a0, 0($sp)
+syscall
+jr $ra
+READINT: 
+li $v0, 5
+syscall
+jr $ra
+WRITESTR: 
+li $v0, 4
+lw $a0, 0($sp)
+syscall
+jr $ra

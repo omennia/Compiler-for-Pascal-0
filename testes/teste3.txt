@@ -1,0 +1,21 @@
+(* Programa para testar se podemos passar arrays de tamanho diferente *)
+
+program TesteArr;
+const N = 5; (* Size of array to sort *)
+
+function test(vec : array[2..10] of integer; i : integer): integer;
+begin
+  vec[i] := i
+end;
+
+var
+   fib : array[2..5] of integer;
+   arr : array[2..10] of string;
+   i   : integer; 
+begin
+
+  arr[2] := 10;
+  arr[3] := 10;
+
+  test(arr, 3)
+end.
